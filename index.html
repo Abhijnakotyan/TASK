@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frontend Mentor | Contact form</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #e6f4ea;
+      padding: 20px;
+      margin: 0;
+    }
+    .form-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      margin-bottom: 1.5rem;
+      color: #1a1a1a;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+    .form-group label span {
+      display: inline;
+      margin-left: 4px;
+      color: #00754a;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+    .double {
+      display: flex;
+      gap: 1rem;
+    }
+    .double > div {
+      flex: 1;
+    }
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    button {
+      width: 100%;
+      padding: 1rem;
+      background-color: #00754a;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #005f3a;
+    }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+    @media (max-width: 600px) {
+      .double {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h1>Contact Us</h1>
+    <form>
+      <div class="form-group double">
+        <div>
+          <label for="first-name">First Name<span>*</span></label>
+          <input type="text" id="first-name" name="first-name" required>
+        </div>
+        <div>
+          <label for="last-name">Last Name<span>*</span></label>
+          <input type="text" id="last-name" name="last-name" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address<span>*</span></label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label>Query Type<span>*</span></label>
+        <div class="radio-group">
+          <label><input type="radio" name="query" value="general" required> General Enquiry</label>
+          <label><input type="radio" name="query" value="support"> Support Request</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message<span>*</span></label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="checkbox-group">
+          <input type="checkbox" name="consent" required />
+          <span>I consent to being contacted by the team</span>
+        </label>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+
+</body>
+</html>
