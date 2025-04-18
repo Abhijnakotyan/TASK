@@ -191,19 +191,16 @@ input[type="checkbox"]:checked {
   transition: all 0.4s ease;
   max-width: 90%;
   width: fit-content;
-  display: flex;
-  align-items: flex-start;
+  
 }
 
 .toast-content {
-  display: flex;
-  align-items: flex-start;
+
   gap: 0.75rem;
 }
 
 .toast-text {
-  display: flex;
-  flex-direction: column;
+ 
   gap: 0.2rem;
 }
 
