@@ -5,144 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Frontend Mentor | Contact form</title>
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #e6f4ea;
-      padding: 20px;
-      margin: 0;
-    }
-    .form-container {
-      max-width: 700px;
-      margin: 0 auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-      margin-bottom: 1.5rem;
-      color: #1a1a1a;
-    }
-    .form-group {
-      margin-bottom: 1.2rem;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 0.4rem;
-      font-weight: 500;
-    }
-    .form-group label span {
-      display: inline;
-      margin-left: 4px;
-      color: #00754a;
-    }
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      width: 100%;
-      padding: 0.8rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-    textarea {
-      height: 100px;
-      resize: vertical;
-    }
-    .double {
-      display: flex;
-      gap: 1rem;
-    }
-    .double > div {
-      flex: 1;
-    }
-    .radio-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .radio-group label {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .checkbox-group {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-    button {
-      width: 100%;
-      padding: 1rem;
-      background-color: #00754a;
-      color: white;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    button:hover {
-      background-color: #005f3a;
-    }
-    .attribution {
-      font-size: 11px;
-      text-align: center;
-      margin-top: 2rem;
-    }
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-    }
-    @media (max-width: 600px) {
-      .double {
-        flex-direction: column;
-      }
-    }
-  </style>
+ 
+   
 </head>
 <body>
 
+  <div class="toast" id="toast">
+    <div class="toast-content">
+      <div class="toast-icon">
+        <img src="./assets/images/icon-success-check.png" alt="Success Icon" />
+      </div>
+      <div class="toast-text">
+        <strong>Message Sent!</strong><br />
+        <span>Thanks for completing the form. We'll be in touch soon!</span>
+      </div>
+    </div>
+  </div>
+  
   <div class="form-container">
     <h1>Contact Us</h1>
-    <form>
+    <form id="contactForm">
       <div class="form-group double">
         <div>
-          <label for="first-name">First Name<span>*</span></label>
-          <input type="text" id="first-name" name="first-name" required>
+          <label for="firstName">First Name<span>*</span></label>
+          <input type="text" id="firstName" name="firstName" required aria-describedby="firstNameError"/>
+          <div id="firstNameError" class="error" role="alert"></div>
         </div>
         <div>
-          <label for="last-name">Last Name<span>*</span></label>
-          <input type="text" id="last-name" name="last-name" required>
+          <label for="lastName">Last Name<span>*</span></label>
+          <input type="text" id="lastName" name="lastName" required aria-describedby="lastNameError"/>
+          <div id="lastNameError" class="error" role="alert"></div>
         </div>
       </div>
 
       <div class="form-group">
         <label for="email">Email Address<span>*</span></label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" required aria-describedby="emailError">
+        <div id="emailError" class="error" role="alert"></div>
       </div>
 
       <div class="form-group">
         <label>Query Type<span>*</span></label>
-        <div class="radio-group">
+        <div class="radio-group" id="queryGroup">
           <label><input type="radio" name="query" value="general" required> General Enquiry</label>
           <label><input type="radio" name="query" value="support"> Support Request</label>
+          <div id="queryError" class="error" role="alert"></div>
         </div>
       </div>
 
       <div class="form-group">
         <label for="message">Message<span>*</span></label>
-        <textarea id="message" name="message" required></textarea>
+        <textarea id="message" name="message" required aria-describedby="messageError"></textarea>
+        <div id="messageError" class="error" role="alert"></div>
       </div>
 
       <div class="form-group">
         <label class="checkbox-group">
-          <input type="checkbox" name="consent" required />
+          <input type="checkbox" id="consent" name="consent" required aria-describedby="consentError"/>
           <span>I consent to being contacted by the team</span>
+          <div id="consentError" class="error" role="alert"></div>
         </label>
       </div>
 
@@ -152,8 +76,73 @@
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">Abhijna</a>.
   </div>
+
+<script>
+  const form = document.getElementById('contactForm');
+const successMessage = document.getElementById('toast');
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  let isValid = true;
+
+  
+  document.querySelectorAll('.error').forEach(el => el.textContent = '');
+
+  const firstName = document.getElementById('firstName');
+  const lastName = document.getElementById('lastName');
+  const email = document.getElementById('email');
+  const message = document.getElementById('message');
+  const consent = document.getElementById('consent');
+  const queryInputs = document.querySelectorAll('input[name="query"]');
+
+  if (!firstName.value.trim()) {
+    document.getElementById('firstNameError').textContent = 'First name is required';
+    isValid = false;
+  }
+
+  if (!lastName.value.trim()) {
+    document.getElementById('lastNameError').textContent = 'Last name is required';
+    isValid = false;
+  }
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email.value.trim()) {
+    document.getElementById('emailError').textContent = 'Email is required';
+    isValid = false;
+  } else if (!emailPattern.test(email.value)) {
+    document.getElementById('emailError').textContent = 'Enter a valid email';
+    isValid = false;
+  }
+
+  const querySelected = Array.from(queryInputs).some(input => input.checked);
+  if (!querySelected) {
+    document.getElementById('queryError').textContent = 'Please select a query type';
+    isValid = false;
+  }
+
+  if (!message.value.trim()) {
+    document.getElementById('messageError').textContent = 'Message is required';
+    isValid = false;
+  }
+
+  if (!consent.checked) {
+    document.getElementById('consentError').textContent = 'You must agree to proceed';
+    isValid = false;
+  }
+
+  if (isValid) {
+    form.reset();
+    successMessage.innerHTML = `<strong>Message Sent!</strong> Thanks for completing the form. We'll be in touch soon!`;
+    successMessage.classList.add('show');
+
+    setTimeout(() => {
+      successMessage.classList.remove('show');
+    }, 5000);
+  }
+});
+</script>
 
 </body>
 </html>
