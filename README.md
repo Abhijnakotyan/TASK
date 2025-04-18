@@ -19,19 +19,24 @@ Users should be able to:
 - See hover and focus states for all interactive elements on the page.
 
 ### Screenshot
-
-![Success](success.png) 
-![Mobile-design-View](mobiledesign.png) 
-![Error](error.png) 
-![Hover](hover.png) 
 ![Desktop-Design-View](<desktop design.png>) 
+##### Desktop-Design
+![Mobile-design-View](mobiledesign.png) 
+##### Mobile-Design View
+![Success](success.png) 
+##### Success Message
+![Error](error.png) 
+##### Error Message
+![Hover](hover.png) 
+##### Hover Focus
 ![Desktop-info](desktop-info.png)
+##### Desktop-Info
 
 
 
 ### Links
 - Solution URL: [Solution on Frontend Mentor](https://www.frontendmentor.io/solutions/htmlcssjavascript-OtdVIzazYV)
-- Live Site URL: [Live Site URL](https://contactform-frontendwebsite.netlify.app/)
+- Live Site URL: [Contact Form](https://contactform-frontendwebsite.netlify.app/)
 
 ## My process
 
@@ -49,11 +54,7 @@ In this project, I learned:
 - The importance of providing accessible user feedback through toast notifications.
 - How to use CSS to create a responsive layout that adapts to different screen sizes.
 - Improved my understanding of handling form submission events and user input.
-  
-### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 ### Author
 - Website - [Abhijna](https://contactform-frontendwebsite.netlify.app/)
