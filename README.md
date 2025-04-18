@@ -34,8 +34,6 @@ Users should be able to:
 #### Hover Focus
 ![Hover](hover.png) 
 
-#### Desktop-Info
-![Desktop-info](desktop-info.png)
 
 
 
