@@ -19,18 +19,24 @@ Users should be able to:
 - See hover and focus states for all interactive elements on the page.
 
 ### Screenshot
+#### Desktop-Design           
 ![Desktop-Design-View](<desktop design.png>) 
-##### Desktop-Design
+
+#### Mobile-Design View
 ![Mobile-design-View](mobiledesign.png) 
-##### Mobile-Design View
-![Success](success.png) 
-##### Success Message
-![Error](error.png) 
-##### Error Message
+
+#### Success Message
+![Success](success.png)
+
+#### Error Message
+![Error](error.png)
+
+#### Hover Focus
 ![Hover](hover.png) 
-##### Hover Focus
+
+#### Desktop-Info
 ![Desktop-info](desktop-info.png)
-##### Desktop-Info
+
 
 
 
